@@ -13,8 +13,6 @@ android {
         targetSdkVersion 27
     }
 
-}
-
 buildTypes {
     release {
         signingConfig signingConfigs.release
@@ -40,4 +38,8 @@ productFlavors {
         }
     }
 }
+
+
+}
+
 
