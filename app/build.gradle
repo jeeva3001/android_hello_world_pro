@@ -1,0 +1,43 @@
+apply plugin: 'com.android.application'
+
+dependencies {
+    compile fileTree(dir: 'libs', include: '*.jar')
+}
+
+android {
+    compileSdkVersion 27
+    buildToolsVersion "27.0.3"
+
+    defaultConfig {
+        minSdkVersion 19
+        targetSdkVersion 27
+    }
+
+}
+
+buildTypes {
+    release {
+        signingConfig signingConfigs.release
+    }
+}
+
+productFlavors {
+    armv7 {
+        versionCode defaultConfig.versionCode*10 + 2
+        ndk {
+            abiFilters "armeabi-v7a", ""
+        }
+    }
+    x86 {
+        versionCode defaultConfig.versionCode*10 + 4
+        ndk {
+            abiFilters "x86", ""
+        }
+    }
+    all {
+        ndk {
+            abiFilters "all", ""
+        }
+    }
+}
+
